@@ -1,0 +1,121 @@
+
+/* Color Variation */
+:root{
+    --background:#EBE0D4;
+    --font-dark:#484848;
+    --font-white:white;
+    --background-dark:#484848;
+    --object-color:#DF5A52;
+}
+
+/* Default values */
+*{
+    margin: 0;
+    padding: 0;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.container{
+    border: solid 1px black;
+    border-radius: 30px;
+    margin: 50px auto 50px auto; /* Centers the container in the middle. */
+    width: 393px; /* Set values to imitate a phone */
+    height: 852px;
+    background: var(--background);
+    padding: 1.3rem;
+    overflow: hidden;/* hides when an element goes out of the container */
+
+}
+
+/* Search bar container
+    Includes the button */
+.top-container{
+    /* border: solid 1px black;  */
+    border-bottom: 2px var(--background-dark) solid;
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: end;
+}
+
+/* Where the search bar located. */
+.top-container > form > div{
+    margin: 0;
+    float: left;
+    padding-bottom: 1rem;
+}
+
+/* This is the input , it background is transparent and the color is white */
+.top-container > form > div > input{
+    background-color: transparent;
+    color: var(--font-white);
+    border: none;
+}
+/* Placeholder style */
+
+
+/* The style for the search button */
+.top-container > form > button{
+    background-color: transparent;
+    border: none;
+    font-size: 1rem; 
+    padding-right:1rem;
+}
+
+/* Notes: could be replaces with images instead */
+.weather-object{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: var(--object-color);
+    z-index: 1;
+    right: 80px;
+    position: relative;
+
+}
+/* This is the top circle , it can be a representation of the moon, when is past sunset it should change */
+.top-weather-object{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: solid 1px var(--font-white);
+    left: 50px;
+    top: 80px;
+    z-index: 2;
+    position: relative;
+}
+
+.bottom-weather-object{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px var(--object-color) solid;
+    z-index: 1;
+    right: 15px;
+    bottom: 230px;
+    position: relative;
+}
+/* Style for the location */
+.current_city,.state{
+position: relative;
+z-index: 3;
+left: 40px;
+top: 100px;
+color: var(--font-white);
+font-size: 1rem;
+}
+
+/* Style for the temperature shown */
+.current-temperature{
+    left: 40px;
+    bottom: 150px;   
+    position: relative;
+    z-index: 3;
+    font-size: 4rem;
+    color: var(--font-dark);
+}
+
+/* Date style gives the day of the week, the month and the day  */
+.date{
+    color: red;
+}

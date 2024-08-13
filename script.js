@@ -482,14 +482,20 @@ function showWeatherData(data, geolocationData, locationData) {
     currentTempEl.innerHTML = ` 
         <div class="left">
             <div class="date">${moment(date_time_txt).format('dddd ,MMMM D')}</div>
-            <div class="current_city">${name}</div>
-            <div class="state">${state}</div>
+            
        </div>
             <div class="time">${time_24}</div>
-             <img src="${weatherIcon}" alt="weather-icon" class="w-icon">
+            <div class="top-weather-object"></div>
+            <div class="current_city">${name}</div>
+            <div class="state">${state}</div>
+
+            <div class="weather-object"></div>
+            <div class="current-temperature">${Math.trunc(temp)}&#176F</div>
+            <div class="bottom-weather-object"></div>
              <div class="description">${description}</div>
-             <div class="current-temperature">${Math.trunc(temp)}&#176F</div>
+             
         `
+        // <img src="${weatherIcon}" alt="weather-icon" class="w-icon">
 
     // if(weatherCondition === 'Rain')
     //     {

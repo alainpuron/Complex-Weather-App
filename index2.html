@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style2.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+
+
+
+    <div class="container" id="container">
+
+        <!-- The top container contains the search bar  -->
+        <div class="top-container">
+
+            <!-- Form to seach a city, when user types letter the app suggest some places -->
+              <form autocomplete="off" >
+                <div class="autocomplete">
+                    <input id="search-bar" type="text" name="city" placeholder="Type a city">
+                  </div>
+
+                  <!-- <i class="fa-solid fa-magnifying-glass" id="search-Btn"></i> -->
+                  <!-- <input type="submit" id="search-Btn"> -->
+
+                   <!-- Search icon button -->
+                  <button id="search-Btn">
+                    <i class="fa fa fa-magnifying-glass"></i>
+                </button>
+              </form>
+        
+        </div>
+
+
+        <!-- Tab containers to divide all the categories -->
+
+        <div class="tab">
+            <button class="tablinks" onclick="openTab(event, 'Now')" id="defaultOpen">Now</button>
+            <button class="tablinks" onclick="openTab(event, 'Hourly')">Hourly</button>
+            <button class="tablinks" onclick="openTab(event, 'days')">Next 6 days</button>
+        </div>
+
+        <!-- Everything related with the current temperature and weather -->
+        <div id="Now" class="tabcontent">
+            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+            <!-- Information to display -->
+            <div class="current-info">
+
+                <div class="today" id="current-temp">
+
+                </div>
+
+                <!-- Contains the local time -->
+                <div class="date-container">
+
+                    <!-- Contains the local date -->
+                    <div class="date" id="date">
+                        <!--  Current date displays -->
+                    </div>
+                    <!-- Contains the local hour -->
+                    <div class="time" id="time">
+                        <!-- Current Hour displays -->
+                        <span id="am-pm"></span>
+                    </div>
+
+                </div>
+
+                <!-- Contains Extra Information -->
+                <div class="other" id="current-weather-items">
+
+                </div>
+
+            </div>
+        </div>
+            <!-- Everything related with the hourly temperature and weather -->
+            <div id="Hourly" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+                
+
+                <!-- Houryly temperature -->
+                <div class="hourly-forecast" id="hourly-forecast">
+
+
+                </div>
+
+            </div>
+
+            <!-- Everything related with the daily temperature and weather -->
+
+            <div id="days" class="tabcontent">
+                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+
+                <!-- The weather for the upcoming days -->
+                <div class="future-forecast">
+
+                    <!-- The weather for the upcoming days -->
+                    <div class="weather-forecast" id="weather-forecast">
+                        <div class="weather-forecast-item">
+                         
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://kit.fontawesome.com/f18b680110.js" crossorigin="anonymous"></script>
+    <!-- Formats the sunset and sunrise values -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
