@@ -4,121 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <title>Modern Weather Web App</title>
+    <link rel="stylesheet" href="style.css?v=3">
+    <!-- Include FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-
-
-
-
-    <div class="container" id="container">
-
-        <div class="top-container">
-
-            
-              <form autocomplete="off" >
-                <div class="autocomplete" style="width:300px; ">
-                    <input id="search-bar" type="text" name="city" placeholder="Type a city">
-                  </div>
-                  <!-- <i class="fa-solid fa-magnifying-glass" id="search-Btn"></i> -->
-                  <input type="submit" id="search-Btn">
-              </form>
-        
+    <div class="app-container" id="container">
+        <!-- Abstract Background Shapes -->
+        <div class="bg-shapes">
+            <div class="shape shape-solid-accent"></div>
+            <div class="shape shape-outline-1"></div>
+            <div class="shape shape-outline-2"></div>
+            <div class="shape shape-outline-3"></div>
         </div>
+        <!-- Dynamic Weather Particles -->
+        <div id="weather-fx" class="weather-fx"></div>
 
-
-        <!-- Tab containers to divide all the categories -->
-
-        <div class="tab">
-            <button class="tablinks" onclick="openTab(event, 'Now')" id="defaultOpen">Now</button>
-            <button class="tablinks" onclick="openTab(event, 'Hourly')">Hourly</button>
-            <button class="tablinks" onclick="openTab(event, 'days')">Next 6 days</button>
-        </div>
-
-        <!-- Everything related with the current temperature and weather -->
-        <div id="Now" class="tabcontent">
-            <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-
-            <!-- Information to display -->
-            <div class="current-info">
-
-                <div class="today" id="current-temp">
-
+        <div class="ui-layer">
+            <!-- Top Bar: Logo & Search -->
+            <header class="header">
+                <div class="app-logo">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                    <span>Atmos</span>
                 </div>
-
-                <!-- Contains the local time -->
-                <div class="date-container">
-
-                    <!-- Contains the local date -->
-                    <div class="date" id="date">
-                        <!--  Current date displays -->
+                <form id="search-form" class="search-form" autocomplete="off">
+                    <div class="autocomplete">
+                        <input type="text" id="search-bar" placeholder="Enter city...">
                     </div>
-                    <!-- Contains the local hour -->
-                    <div class="time" id="time">
-                        <!-- Current Hour displays -->
-                        <span id="am-pm"></span>
+                    <button type="submit" id="search-Btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </header>
+
+            <!-- Main Content -->
+            <main class="weather-grid" id="Now">
+
+                <!-- Left Column: Current Weather -->
+                <section class="current-pane">
+                    <div class="time-header">
+                        <div id="time" class="time">--:--</div>
+                        <div id="date" class="date">--- --, ----</div>
                     </div>
 
-                </div>
+                    <div class="location-box">
+                        <h1 id="city-name" class="city">Loading...</h1>
+                        <h2 id="state-name" class="state">Please wait...</h2>
+                    </div>
 
-                <!-- Contains Extra Information -->
-                <div class="other" id="current-weather-items">
+                    <div class="temperature-box">
+                        <div id="current-temp" class="temp">--°</div>
+                        <div class="temp-details">
+                            <span id="condition">----</span>
+                            <div class="high-low" id="high-low">H:--° L:--°</div>
+                        </div>
+                    </div>
+                </section>
 
-                </div>
+                <!-- Right Column: Details & Forecast -->
+                <section class="details-pane">
 
-            </div>
-        </div>
-            <!-- Everything related with the hourly temperature and weather -->
-            <div id="Hourly" class="tabcontent">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
+                    <div class="extra-info glass-panel" id="current-weather-items">
+                        <!-- Humidity, Wind, Sunrise, Sunset injected here -->
+                    </div>
 
-                
-
-                <!-- Houryly temperature -->
-                <div class="hourly-forecast" id="hourly-forecast">
-
-
-                </div>
-
-            </div>
-
-            <!-- Everything related with the daily temperature and weather -->
-
-            <div id="days" class="tabcontent">
-                <span onclick="this.parentElement.style.display='none'" class="topright">&times</span>
-
-                <!-- The weather for the upcoming days -->
-                <div class="future-forecast">
-
-                    <!-- The weather for the upcoming days -->
-                    <div class="weather-forecast" id="weather-forecast">
-                        <div class="weather-forecast-item">
-                         
+                    <!-- Forecast Tabs -->
+                    <div class="forecast-container glass-panel">
+                        <div class="forecast-tabs">
+                            <button class="tab-btn active" data-tab="hourly">Hourly</button>
+                            <button class="tab-btn" data-tab="daily">Daily <span>(7 days)</span></button>
                         </div>
 
+                        <div class="forecast-content">
+                            <div id="hourly-forecast" class="forecast-panel active">
+                                <!-- Hourly items injected here -->
+                            </div>
+                            <div id="daily-forecast" class="forecast-panel">
+                                <!-- Daily items injected here -->
+                            </div>
+                        </div>
                     </div>
+                </section>
 
-                </div>
-
-
-            </div>
-
+            </main>
         </div>
-
     </div>
-
-    <script src="https://kit.fontawesome.com/f18b680110.js" crossorigin="anonymous"></script>
-    <!-- Formats the sunset and sunrise values -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-        integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="script.js?v=3"></script>
 </body>
 
 </html>

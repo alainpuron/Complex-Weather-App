@@ -116,6 +116,57 @@ font-size: 1rem;
 }
 
 /* Date style gives the day of the week, the month and the day  */
+.right{
+    color: var(--font-dark);
+    position: relative;
+    right: 0;
+    float: right;
+    top: 250px;
+}
+/* Style for the long date format */
 .date{
-    color: red;
+    font-size: 0.9rem;
+}
+/* style for the weather description */
+.description{
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+/* Makes the max temp and the min temp be next to eachother */
+.max-temp,.min-temp{
+    display: inline;
+}
+
+ /* Add an icon for the temperature  */
+.max-temp::before{
+
+    font-family: FontAwesome;
+    content: "\f0d8";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    color: var(--object-color);
+}
+
+.min-temp::before{
+    font-family: FontAwesome;
+   content: "\f0d7";
+   display: inline-block;
+   padding-right: 3px;
+   vertical-align: middle;
+   color: var(--font-dark);
+
+}
+
+/* Tabs for the different data options,  */
+.tablinks:active{
+    background-color: #DF5A52;
+    border: none;
+}
+.tablinks{
+height: 0.7rem;
+width: 0.7rem;
+border-radius: 50%;
+border: solid 1px white;
+background-color: transparent;
 }
